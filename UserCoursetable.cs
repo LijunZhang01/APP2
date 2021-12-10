@@ -78,7 +78,7 @@ namespace App2
                 dataGridView1.Columns[i].Width = 122;
             }
         }
-
+        //fjdlsjfldsjflks
         private void UserCoursetable_Load(object sender, EventArgs e)
         {
                 
