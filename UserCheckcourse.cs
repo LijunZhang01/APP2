@@ -99,7 +99,7 @@ namespace App2
             if(zhuangtai.Text=="单项查询")
             {
                 if (id.Text != "") idsearch();
-                else if (name.Text != "") namesearch();
+                else if (name.Text != "") namesearch(); 
                 else if (teacher.Text != "") teachersearch();
                 else if (yuanxi.Text != "") yuanxisearch();
                 else table();
