@@ -37,6 +37,7 @@ namespace App2
 
         private void user_Load(object sender, EventArgs e)
         {
+            _obj = this;
             UserInformation ui = new UserInformation();
             ui.Dock = DockStyle.Fill;
             panelContainer.Controls.Add(ui);
@@ -78,6 +79,7 @@ namespace App2
                 ut.Dock = DockStyle.Fill;
                 PnlContainer.Controls.Add(ut);
             }
+            
             PnlContainer.Controls["UserCoursetable"].BringToFront();
         }
 
@@ -120,6 +122,11 @@ namespace App2
             this.Hide();
             exit.ShowDialog();
             this.Show();
+        }
+
+        private void panelContainer_Paint_1(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

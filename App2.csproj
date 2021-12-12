@@ -60,6 +60,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Management" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
@@ -72,6 +73,7 @@
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -89,11 +91,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminCourse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminCourse.Designer.cs">
+      <DependentUpon>AdminCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="adminer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="adminer.Designer.cs">
       <DependentUpon>adminer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminInformation.Designer.cs">
+      <DependentUpon>AdminInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminScore.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminScore.Designer.cs">
+      <DependentUpon>AdminScore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminStudent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminStudent.Designer.cs">
+      <DependentUpon>AdminStudent.cs</DependentUpon>
     </Compile>
     <Compile Include="Dao.cs" />
     <Compile Include="Data.cs" />
@@ -153,8 +179,20 @@
     <Compile Include="UserTeacher.Designer.cs">
       <DependentUpon>UserTeacher.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminCourse.resx">
+      <DependentUpon>AdminCourse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="adminer.resx">
       <DependentUpon>adminer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminInformation.resx">
+      <DependentUpon>AdminInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminScore.resx">
+      <DependentUpon>AdminScore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminStudent.resx">
+      <DependentUpon>AdminStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -215,6 +253,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\背景.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\合_22操作记录.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled-11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\图片2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_放大.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

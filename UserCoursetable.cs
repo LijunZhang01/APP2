@@ -6,16 +6,32 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 
 namespace App2
 {
     public partial class UserCoursetable : UserControl
     {
+        //System.Timers.Timer t = new System.Timers.Timer(5000); //设置时间间隔为5秒
         public UserCoursetable()
         {
 
             InitializeComponent();
+            table1();
+            /*System.Timers.Timer mTimer = new System.Timers.Timer(7000D);
+            mTimer.Elapsed += new ElapsedEventHandler(mTimer_Elapsed);
+            mTimer.Start();
+
+            mTimer_Elapsed(null, null);*/
+
+        }
+        private void mTimer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            table1();
+        }
+        public void table1()
+        {
             int num, week;   // 周数节数，第二步的时候用得到。
             DataTable dt = new DataTable("subject");
             for (int i = 0; i < 9; i++)  //用循环添加4个行集~
@@ -51,10 +67,10 @@ namespace App2
             {
                 for (int j = 1; j < 8; j++)//每行有7列需要添加数据，在课程表中，J 表示的应该是周数。
                 {
-                    num = i ;
+                    num = i;
                     week = j;
                     Dao dao = new Dao();
-                    string mysql = $"SELECT `subject`.name,`subject`.teacher,`subject`.location,`subject`.long from `subject`,yonghu,sc WHERE yonghu.num = sc.sid and sc.cid =`subject`.id and yonghu.num = '{Data.UID}' and `subject`.num = '{num.ToString()}' and `subject`.week = '{week.ToString()}'";
+                    string mysql = $"SELECT `subject`.name,`subject`.teacher,`subject`.location,`subject`.long from `subject`,yonghu,sc,`mysubject` WHERE yonghu.num = sc.sid and sc.cid =`subject`.id and yonghu.num = '{Data.UID}' and `subject`.num = '{num.ToString()}' and `subject`.week = '{week.ToString()}' and `subject`.id=`mysubject`.id";
                     //string mysql = "select subject ,teacher,room,weekstar_end from subject_table where num='" + num.ToString() + "' and week = '" + week.ToString() + "'";  //拼凑SQL语句。
                     IDataReader dc = dao.read(mysql);
                     while (dc.Read())
@@ -63,9 +79,12 @@ namespace App2
                         //如上图，一个格子里头有好几个信息。比如教师，教室，课程名。这里把从数据库中取出的数据拼在一起。
                         dt.Rows[i][j] = sum;  //把Sum 添加到datatable的小格子里。
                     }
+                    dc.Close();
+                    dao.DaoClose();
+
                 }
             }
-            this.dataGridView1.DataSource = dt;
+            dataGridView1.DataSource = dt;
             dataGridView1.DefaultCellStyle.BackColor = Color.FromArgb(46, 51, 90);
             //dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(46, 51, 73);
             dataGridView1.RowHeadersVisible = false;
@@ -73,16 +92,27 @@ namespace App2
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dataGridView1.RowTemplate.Height = 41;
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(46, 51, 73);
-            for(int i=0;i<8;i++)
+            for (int i = 0; i < 8; i++)
             {
                 dataGridView1.Columns[i].Width = 122;
             }
+
+            
+            
         }
         //fjdlsjfldsjflks
+        /*private void Timer_TimesUp(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            //到达指定时间5秒触发该事件输出 Hello World!!!!
+            table1();
+            MessageBox.Show("jdslfjsdlfjsd");
+        }*/
         private void UserCoursetable_Load(object sender, EventArgs e)
         {
-                
-         }
+            //t.Elapsed += new System.Timers.ElapsedEventHandler(Timer_TimesUp);
+            //t.AutoReset = false;
+            //每到指定时间Elapsed事件是触发一次（false），还是一直触发（true）
+        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -103,6 +133,22 @@ namespace App2
         {
 
         }
+
+        public void button1_Click(object sender, EventArgs e)
+        {
+            table1();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            table1();
+        }
+
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            table1();
+        }
     }
  }
+
 

@@ -16,6 +16,7 @@ namespace App2
         {
             //sfsdf
             InitializeComponent();
+            Control.CheckForIllegalCrossThreadCalls = false;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,9 +42,10 @@ namespace App2
                     Data.UID = textBox1.Text;
                     Data.UName = dc["name"].ToString();
                     //MessageBox.Show("登陆成功");
-                    user user1 = new user();
                     this.Hide();
-                    user1.ShowDialog();
+                    new user().ShowDialog();
+                    
+                    
                 }
                 else
                 {
@@ -55,17 +57,17 @@ namespace App2
             if (radioButton2.Checked == true)
             {
                 Dao dao = new Dao();
-                string mysql = $"select * from guanli where num='{textBox1.Text}'and pass='{textBox2.Text}'";
+                string mysql = $"select * from guanli where id='{textBox1.Text}'and pas='{textBox2.Text}'";
                 IDataReader dc = dao.read(mysql);
                 if (dc.Read())
                 {
-                    Data.UID = dc["num"].ToString();
-                    Data.UName = dc["name"].ToString();
+                    Data.UID = dc["id"].ToString();
+                    //Data.UName = dc["name"].ToString();
                     //MessageBox.Show(dc["num"].ToString());
                     adminer adminer1 = new adminer();
                     this.Hide();
                     adminer1.ShowDialog();
-                    this.Show();
+                    //this.Show();
                 }
                 else
                 {

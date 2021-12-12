@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace App2
@@ -96,17 +91,17 @@ namespace App2
 
         private void btn_query_Click(object sender, EventArgs e)
         {
-            if(zhuangtai.Text=="单项查询")
+            if (zhuangtai.Text == "单项查询")
             {
                 if (id.Text != "") idsearch();
-                else if (name.Text != "") namesearch(); 
+                else if (name.Text != "") namesearch();
                 else if (teacher.Text != "") teachersearch();
                 else if (yuanxi.Text != "") yuanxisearch();
                 else table();
             }
-            else if(zhuangtai.Text == "多项查询")
+            else if (zhuangtai.Text == "多项查询")
             {
-                if (id.Text == "" && name.Text=="" && teacher.Text=="" && yuanxi.Text=="") table();
+                if (id.Text == "" && name.Text == "" && teacher.Text == "" && yuanxi.Text == "") table();
                 else duoxiangsearch(); ;
             }
             else
@@ -120,7 +115,7 @@ namespace App2
             dataGridView1.Rows.Clear();//清空旧数据
             dataGridView1.Rows.Add("课程序号", "课程名称", "教室", "开课院系", "上课地点", "开课周数", "开课节数", "起始周");
             Dao dao = new Dao();
-            string mysql = $"SELECT `subject`.id,`subject`.name,`subject`.teacher,`yuanxi`.name,`subject`.location,`subject`.week,`subject`.num,`subject`.long from `subject`,yuanxi WHERE yuanxi.id=`subject`.yuanxi and `subject`.id='{id.Text}'" ;
+            string mysql = $"SELECT `subject`.id,`subject`.name,`subject`.teacher,`yuanxi`.name,`subject`.location,`subject`.week,`subject`.num,`subject`.long from `subject`,yuanxi WHERE yuanxi.id=`subject`.yuanxi and `subject`.id='{id.Text}'";
             IDataReader dc = dao.read(mysql);
             while (dc.Read())
             {
@@ -254,18 +249,45 @@ namespace App2
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            string id11 = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
+            string mysql1 = $"select id from mysubject where id=('{id11}');";
+            Dao dao = new Dao();
+            IDataReader dc = dao.read(mysql1);
+            if (dc.Read())
+            {
+                MessageBox.Show("选课失败，可能重复选课");
+            }
+            else
+            {
+                string mysql = $"insert into mysubject(id) values('{id11}');";
+                if (dao.Execute(mysql) == 1)
+                {
+                    MessageBox.Show("选课成功");
+                }
+                else
+                {
+                    MessageBox.Show("选课失败，请重新尝试或选择相应课程！");
+                }
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
+            //MessageBox.Show("111111111111");
+            Mysubject ut = new Mysubject();
             if (!user.Instance.PnlContainer.Controls.ContainsKey("Mysubject"))
             {
-                UserTeacher ut = new UserTeacher();
                 ut.Dock = DockStyle.Fill;
                 user.Instance.PnlContainer.Controls.Add(ut);
+                //MessageBox.Show("222222222222");
             }
+            //MessageBox.Show("333333333333");
             user.Instance.PnlContainer.Controls["Mysubject"].BringToFront();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

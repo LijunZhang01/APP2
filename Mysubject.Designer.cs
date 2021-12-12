@@ -29,6 +29,7 @@ namespace App2
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,7 +40,7 @@ namespace App2
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.teacher1 = new System.Windows.Forms.TextBox();
             this.return1 = new System.Windows.Forms.Button();
-            this.yuanxi1 = new System.Windows.Forms.TextBox();
+            this.yuanxi = new System.Windows.Forms.TextBox();
             this.tuike = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,7 +49,7 @@ namespace App2
             this.zhuangtai1 = new System.Windows.Forms.Label();
             this.zhuangtai = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.search1 = new System.Windows.Forms.Button();
+            this.search = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +60,7 @@ namespace App2
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -125,7 +127,7 @@ namespace App2
             // 
             this.groupBox1.Controls.Add(this.teacher1);
             this.groupBox1.Controls.Add(this.return1);
-            this.groupBox1.Controls.Add(this.yuanxi1);
+            this.groupBox1.Controls.Add(this.yuanxi);
             this.groupBox1.Controls.Add(this.tuike);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
@@ -134,7 +136,7 @@ namespace App2
             this.groupBox1.Controls.Add(this.zhuangtai1);
             this.groupBox1.Controls.Add(this.zhuangtai);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.search1);
+            this.groupBox1.Controls.Add(this.search);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -145,6 +147,7 @@ namespace App2
             this.groupBox1.TabIndex = 69;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "快速查找";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // teacher1
             // 
@@ -166,13 +169,14 @@ namespace App2
             this.return1.TabIndex = 59;
             this.return1.Text = "返回选课";
             this.return1.UseVisualStyleBackColor = false;
+            this.return1.Click += new System.EventHandler(this.return1_Click);
             // 
-            // yuanxi1
+            // yuanxi
             // 
-            this.yuanxi1.Location = new System.Drawing.Point(503, 107);
-            this.yuanxi1.Name = "yuanxi1";
-            this.yuanxi1.Size = new System.Drawing.Size(160, 39);
-            this.yuanxi1.TabIndex = 56;
+            this.yuanxi.Location = new System.Drawing.Point(503, 107);
+            this.yuanxi.Name = "yuanxi";
+            this.yuanxi.Size = new System.Drawing.Size(160, 39);
+            this.yuanxi.TabIndex = 56;
             // 
             // tuike
             // 
@@ -187,6 +191,7 @@ namespace App2
             this.tuike.TabIndex = 58;
             this.tuike.Text = "退课";
             this.tuike.UseVisualStyleBackColor = false;
+            this.tuike.Click += new System.EventHandler(this.tuike_Click);
             // 
             // label3
             // 
@@ -259,19 +264,20 @@ namespace App2
             this.label5.TabIndex = 50;
             this.label5.Text = "课程名：";
             // 
-            // search1
+            // search
             // 
-            this.search1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(223)))), ((int)(((byte)(163)))));
-            this.search1.FlatAppearance.BorderSize = 0;
-            this.search1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.search1.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.search1.ForeColor = System.Drawing.Color.White;
-            this.search1.Location = new System.Drawing.Point(832, 105);
-            this.search1.Name = "search1";
-            this.search1.Size = new System.Drawing.Size(141, 40);
-            this.search1.TabIndex = 31;
-            this.search1.Text = "点击查询";
-            this.search1.UseVisualStyleBackColor = false;
+            this.search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(223)))), ((int)(((byte)(163)))));
+            this.search.FlatAppearance.BorderSize = 0;
+            this.search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.search.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.search.ForeColor = System.Drawing.Color.White;
+            this.search.Location = new System.Drawing.Point(832, 105);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(141, 40);
+            this.search.TabIndex = 31;
+            this.search.Text = "点击查询";
+            this.search.UseVisualStyleBackColor = false;
+            this.search.Click += new System.EventHandler(this.search_Click);
             // 
             // label6
             // 
@@ -383,6 +389,12 @@ namespace App2
             this.Column8.ReadOnly = true;
             this.Column8.Width = 125;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 5000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Mysubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -398,6 +410,7 @@ namespace App2
             this.Controls.Add(this.label9);
             this.Name = "Mysubject";
             this.Size = new System.Drawing.Size(1225, 637);
+            this.Load += new System.EventHandler(this.Mysubject_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -416,7 +429,7 @@ namespace App2
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox teacher1;
         private System.Windows.Forms.Button return1;
-        private System.Windows.Forms.TextBox yuanxi1;
+        private System.Windows.Forms.TextBox yuanxi;
         private System.Windows.Forms.Button tuike;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -425,7 +438,7 @@ namespace App2
         private System.Windows.Forms.Label zhuangtai1;
         private System.Windows.Forms.ComboBox zhuangtai;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button search1;
+        private System.Windows.Forms.Button search;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -436,5 +449,6 @@ namespace App2
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.Timer timer1;
     }
 }
