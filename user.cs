@@ -29,14 +29,21 @@ namespace App2
             get { return panelContainer; }
             set { panelContainer = value; }
         }
+        int panel1with;
+        bool isCollapsed;
         public user()
         {
             InitializeComponent();
+            timer2.Start();
+            panel1with = panel1.Width;
+            isCollapsed = false;
         }
        
 
         private void user_Load(object sender, EventArgs e)
         {
+            label1.Text = Data.UID;
+            label2.Text = Data.UName;
             _obj = this;
             UserInformation ui = new UserInformation();
             ui.Dock = DockStyle.Fill;
@@ -51,7 +58,7 @@ namespace App2
         {
 
         }
-
+       
         private void button6_Click(object sender, EventArgs e)
         {
             Form1 exit = new Form1();
@@ -125,6 +132,52 @@ namespace App2
         }
 
         private void panelContainer_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if(isCollapsed)
+            {
+                panel1.Width = panel1.Width + 10;
+                if(panel1.Width>=panel1with)
+                {
+                    timer1.Stop();
+                    isCollapsed = false;
+                    this.Refresh();
+                }
+            }
+            else
+            {
+                panel1.Width = panel1.Width - 10;
+                if (panel1.Width <= 55)
+                {
+                    timer1.Stop();
+                    isCollapsed = true;
+                    this.Refresh();
+                }
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            DateTime dt = DateTime.Now;
+            label3.Text = dt.ToString("HH:MM:ss");
+            
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

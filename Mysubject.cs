@@ -27,7 +27,7 @@ namespace App2
             dataGridView1.Rows.Clear();//清空旧数据
             dataGridView1.Rows.Add("课程序号", "课程名称", "教室", "开课院系", "上课地点", "开课周数", "开课节数", "起始周");
             Dao dao = new Dao();
-            string mysql = $"SELECT `subject`.id,`subject`.name,`subject`.teacher,`yuanxi`.name,`subject`.location,`subject`.week,`subject`.num,`subject`.long from `subject`,yuanxi,`mysubject` WHERE yuanxi.id=`subject`.yuanxi and `mysubject`.id=`subject`.id" ;
+            string mysql = $"SELECT `subject`.id,`subject`.name,`subject`.teacher,`yuanxi`.name,`subject`.location,`subject`.week,`subject`.num,`subject`.long from `subject`,yuanxi,`mysubject` WHERE yuanxi.id=`subject`.yuanxi and `mysubject`.cid=`subject`.id" ;
             IDataReader dc = dao.read(mysql);
             while (dc.Read())
             {
@@ -219,7 +219,7 @@ namespace App2
         private void tuike_Click(object sender, EventArgs e)
         {
             string id12 = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            string mysql1 = $"delete from mysubject where  id=('{id12}');";
+            string mysql1 = $"delete from mysubject where  cid=('{id12}');";
             Dao dao = new Dao();
             if (dao.Execute(mysql1) == 1)
             {
@@ -232,6 +232,8 @@ namespace App2
                 MessageBox.Show("退课失败，请重新尝试或选择相应课程！");
                 table();
             }
+            dao.DaoClose();
+            
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

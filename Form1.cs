@@ -52,7 +52,7 @@ namespace App2
                     MessageBox.Show("账号或密码不符合");
                 }
                 dao.DaoClose();
-
+                dc.Close();
             }
             if (radioButton2.Checked == true)
             {
@@ -62,7 +62,7 @@ namespace App2
                 if (dc.Read())
                 {
                     Data.UID = dc["id"].ToString();
-                    //Data.UName = dc["name"].ToString();
+                    Data.UName = dc["name"].ToString();
                     //MessageBox.Show(dc["num"].ToString());
                     adminer adminer1 = new adminer();
                     this.Hide();
@@ -74,6 +74,7 @@ namespace App2
                     MessageBox.Show("账号或密码不符合");
                 }
                 dao.DaoClose();
+                dc.Close();
             }
             
         }

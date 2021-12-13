@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace App2
 {
@@ -15,9 +16,34 @@ namespace App2
         public UserInformation()
         {
             InitializeComponent();
+            name.Text = name1.Text;
+            yuanxi.Text = yuanxi1.Text;
+            timer1.Start();
         }
         
-        
+        public void fun()
+        {
+            //circularProgressBar2
+            string mysql1 = $"select cnum from first where id=('{Data.UID}');";
+            Dao dao = new Dao();
+            IDataReader dc = dao.read(mysql1);
+            while(dc.Read())
+            {
+                circularProgressBar2.Text = dc[0].ToString();
+            }
+            dc.Close();
+
+            string mysql2 = $"call new_procedure('{Data.UID}');";
+            
+            IDataReader de = dao.read(mysql2);
+            while (de.Read())
+            {
+                circularProgressBar1.Text = de[0].ToString();
+            }
+            de.Close();
+            dao.DaoClose();
+
+        }
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -46,11 +72,22 @@ namespace App2
                 yuanxi1.Text = dc["yuanxi"].ToString();
             }
             dao.DaoClose();
+            dc.Close();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void circularProgressBar2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            fun();
         }
     }
 }

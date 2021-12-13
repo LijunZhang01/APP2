@@ -12,9 +12,16 @@ namespace App2
 {
     public partial class adminer : Form
     {
+        int panel1with;
+        bool isCollapsed;
         public adminer()
         {
             InitializeComponent();
+            panel1with = panel1.Width;
+            isCollapsed = false;
+            timer2.Start();
+            label1.Text = Data.UID;
+            label2.Text = Data.UName;
         }
         static adminer _obj;
         public static adminer Instance
@@ -121,6 +128,41 @@ namespace App2
             this.Hide();
             exit.ShowDialog();
             this.Show();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (isCollapsed)
+            {
+                panel1.Width = panel1.Width + 10;
+                if (panel1.Width >= panel1with)
+                {
+                    timer1.Stop();
+                    isCollapsed = false;
+                    this.Refresh();
+                }
+            }
+            else
+            {
+                panel1.Width = panel1.Width - 10;
+                if (panel1.Width <= 55)
+                {
+                    timer1.Stop();
+                    isCollapsed = true;
+                    this.Refresh();
+                }
+            }
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            DateTime dt = DateTime.Now;
+            label3.Text = dt.ToString("HH:MM:ss");
         }
     }
 }

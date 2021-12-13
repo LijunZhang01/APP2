@@ -29,15 +29,12 @@ namespace App2
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.sex = new System.Windows.Forms.Label();
-            this.性别 = new System.Windows.Forms.Label();
             this.age = new System.Windows.Forms.Label();
-            this.yuanxi1 = new System.Windows.Forms.Label();
             this.class1 = new System.Windows.Forms.Label();
             this.num = new System.Windows.Forms.Label();
             this.name1 = new System.Windows.Forms.Label();
-            this.yuan = new System.Windows.Forms.Label();
             this.nainl = new System.Windows.Forms.Label();
             this.xuehao = new System.Windows.Forms.Label();
             this.banji = new System.Windows.Forms.Label();
@@ -46,53 +43,34 @@ namespace App2
             this.yuanxi = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.circularProgressBar2 = new CircularProgressBar.CircularProgressBar();
+            this.circularProgressBar1 = new CircularProgressBar.CircularProgressBar();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.sex);
-            this.panel2.Controls.Add(this.性别);
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.age);
-            this.panel2.Controls.Add(this.yuanxi1);
             this.panel2.Controls.Add(this.class1);
             this.panel2.Controls.Add(this.num);
             this.panel2.Controls.Add(this.name1);
-            this.panel2.Controls.Add(this.yuan);
             this.panel2.Controls.Add(this.nainl);
             this.panel2.Controls.Add(this.xuehao);
             this.panel2.Controls.Add(this.banji);
             this.panel2.Controls.Add(this.xingm);
-            this.panel2.Location = new System.Drawing.Point(136, 183);
+            this.panel2.Location = new System.Drawing.Point(37, 162);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(788, 291);
+            this.panel2.Size = new System.Drawing.Size(617, 206);
             this.panel2.TabIndex = 2;
-            // 
-            // sex
-            // 
-            this.sex.AutoSize = true;
-            this.sex.Font = new System.Drawing.Font("华光准圆_CNKI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.sex.ForeColor = System.Drawing.Color.DarkOrchid;
-            this.sex.Location = new System.Drawing.Point(571, 221);
-            this.sex.Name = "sex";
-            this.sex.Size = new System.Drawing.Size(73, 28);
-            this.sex.TabIndex = 13;
-            this.sex.Text = "label3";
-            // 
-            // 性别
-            // 
-            this.性别.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
-            this.性别.AutoSize = true;
-            this.性别.Font = new System.Drawing.Font("华光综艺_CNKI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.性别.ForeColor = System.Drawing.Color.Chocolate;
-            this.性别.Location = new System.Drawing.Point(473, 226);
-            this.性别.Name = "性别";
-            this.性别.Size = new System.Drawing.Size(70, 23);
-            this.性别.TabIndex = 12;
-            this.性别.Text = "性别：";
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // age
             // 
@@ -105,23 +83,12 @@ namespace App2
             this.age.TabIndex = 11;
             this.age.Text = "label10";
             // 
-            // yuanxi1
-            // 
-            this.yuanxi1.AutoSize = true;
-            this.yuanxi1.Font = new System.Drawing.Font("华光准圆_CNKI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.yuanxi1.ForeColor = System.Drawing.Color.DarkOrchid;
-            this.yuanxi1.Location = new System.Drawing.Point(150, 226);
-            this.yuanxi1.Name = "yuanxi1";
-            this.yuanxi1.Size = new System.Drawing.Size(73, 28);
-            this.yuanxi1.TabIndex = 10;
-            this.yuanxi1.Text = "label9";
-            // 
             // class1
             // 
             this.class1.AutoSize = true;
             this.class1.Font = new System.Drawing.Font("华光准圆_CNKI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.class1.ForeColor = System.Drawing.Color.DarkOrchid;
-            this.class1.Location = new System.Drawing.Point(571, 133);
+            this.class1.Location = new System.Drawing.Point(471, 133);
             this.class1.Name = "class1";
             this.class1.Size = new System.Drawing.Size(73, 28);
             this.class1.TabIndex = 9;
@@ -132,7 +99,7 @@ namespace App2
             this.num.AutoSize = true;
             this.num.Font = new System.Drawing.Font("华光准圆_CNKI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.num.ForeColor = System.Drawing.Color.DarkOrchid;
-            this.num.Location = new System.Drawing.Point(571, 37);
+            this.num.Location = new System.Drawing.Point(471, 37);
             this.num.Name = "num";
             this.num.Size = new System.Drawing.Size(73, 28);
             this.num.TabIndex = 8;
@@ -148,18 +115,6 @@ namespace App2
             this.name1.Size = new System.Drawing.Size(68, 28);
             this.name1.TabIndex = 7;
             this.name1.Text = "label1";
-            // 
-            // yuan
-            // 
-            this.yuan.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
-            this.yuan.AutoSize = true;
-            this.yuan.Font = new System.Drawing.Font("华光综艺_CNKI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.yuan.ForeColor = System.Drawing.Color.Chocolate;
-            this.yuan.Location = new System.Drawing.Point(42, 231);
-            this.yuan.Name = "yuan";
-            this.yuan.Size = new System.Drawing.Size(70, 23);
-            this.yuan.TabIndex = 6;
-            this.yuan.Text = "院系：";
             // 
             // nainl
             // 
@@ -177,22 +132,22 @@ namespace App2
             this.xuehao.AutoSize = true;
             this.xuehao.Font = new System.Drawing.Font("华光综艺_CNKI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.xuehao.ForeColor = System.Drawing.Color.Chocolate;
-            this.xuehao.Location = new System.Drawing.Point(473, 37);
+            this.xuehao.Location = new System.Drawing.Point(373, 37);
             this.xuehao.Name = "xuehao";
             this.xuehao.Size = new System.Drawing.Size(70, 23);
             this.xuehao.TabIndex = 4;
-            this.xuehao.Text = "学号：";
+            this.xuehao.Text = "工号：";
             // 
             // banji
             // 
             this.banji.AutoSize = true;
             this.banji.Font = new System.Drawing.Font("华光综艺_CNKI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.banji.ForeColor = System.Drawing.Color.Chocolate;
-            this.banji.Location = new System.Drawing.Point(473, 133);
+            this.banji.Location = new System.Drawing.Point(373, 133);
             this.banji.Name = "banji";
             this.banji.Size = new System.Drawing.Size(70, 23);
             this.banji.TabIndex = 3;
-            this.banji.Text = "班级：";
+            this.banji.Text = "职位：";
             // 
             // xingm
             // 
@@ -240,41 +195,149 @@ namespace App2
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::App2.Properties.Resources.Untitled_11;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(102, 94);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // circularProgressBar2
+            // 
+            this.circularProgressBar2.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
+            this.circularProgressBar2.AnimationSpeed = 500;
+            this.circularProgressBar2.BackColor = System.Drawing.Color.Transparent;
+            this.circularProgressBar2.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.circularProgressBar2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.circularProgressBar2.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.circularProgressBar2.InnerMargin = 2;
+            this.circularProgressBar2.InnerWidth = -1;
+            this.circularProgressBar2.Location = new System.Drawing.Point(685, 117);
+            this.circularProgressBar2.MarqueeAnimationSpeed = 2000;
+            this.circularProgressBar2.Name = "circularProgressBar2";
+            this.circularProgressBar2.OuterColor = System.Drawing.Color.Gray;
+            this.circularProgressBar2.OuterMargin = -25;
+            this.circularProgressBar2.OuterWidth = 26;
+            this.circularProgressBar2.ProgressColor = System.Drawing.Color.Red;
+            this.circularProgressBar2.ProgressWidth = 25;
+            this.circularProgressBar2.SecondaryFont = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.circularProgressBar2.Size = new System.Drawing.Size(244, 235);
+            this.circularProgressBar2.StartAngle = 270;
+            this.circularProgressBar2.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar2.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
+            this.circularProgressBar2.SubscriptText = "";
+            this.circularProgressBar2.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar2.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
+            this.circularProgressBar2.SuperscriptText = "";
+            this.circularProgressBar2.TabIndex = 15;
+            this.circularProgressBar2.Text = "67%";
+            this.circularProgressBar2.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.circularProgressBar2.Value = 68;
+            // 
+            // circularProgressBar1
+            // 
+            this.circularProgressBar1.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
+            this.circularProgressBar1.AnimationSpeed = 500;
+            this.circularProgressBar1.BackColor = System.Drawing.Color.Transparent;
+            this.circularProgressBar1.Font = new System.Drawing.Font("宋体", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.circularProgressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.circularProgressBar1.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.circularProgressBar1.InnerMargin = 2;
+            this.circularProgressBar1.InnerWidth = -1;
+            this.circularProgressBar1.Location = new System.Drawing.Point(981, 117);
+            this.circularProgressBar1.MarqueeAnimationSpeed = 2000;
+            this.circularProgressBar1.Name = "circularProgressBar1";
+            this.circularProgressBar1.OuterColor = System.Drawing.Color.Gray;
+            this.circularProgressBar1.OuterMargin = -25;
+            this.circularProgressBar1.OuterWidth = 26;
+            this.circularProgressBar1.ProgressColor = System.Drawing.Color.Red;
+            this.circularProgressBar1.ProgressWidth = 25;
+            this.circularProgressBar1.SecondaryFont = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.circularProgressBar1.Size = new System.Drawing.Size(244, 235);
+            this.circularProgressBar1.StartAngle = 270;
+            this.circularProgressBar1.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar1.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
+            this.circularProgressBar1.SubscriptText = "";
+            this.circularProgressBar1.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar1.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
+            this.circularProgressBar1.SuperscriptText = "";
+            this.circularProgressBar1.TabIndex = 16;
+            this.circularProgressBar1.Text = "67%";
+            this.circularProgressBar1.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.circularProgressBar1.Value = 68;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::App2.Properties.Resources.chart_diagram;
+            this.pictureBox2.Location = new System.Drawing.Point(136, 422);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(976, 199);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 17;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("华光准圆_CNKI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.ForeColor = System.Drawing.Color.Aqua;
+            this.label2.Location = new System.Drawing.Point(768, 381);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 28);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "开课总数";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("华光准圆_CNKI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.ForeColor = System.Drawing.Color.Aqua;
+            this.label1.Location = new System.Drawing.Point(1046, 381);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(132, 28);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "总学生人数";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // AdminInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.circularProgressBar1);
+            this.Controls.Add(this.circularProgressBar2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Name = "AdminInformation";
             this.Size = new System.Drawing.Size(1225, 637);
+            this.Load += new System.EventHandler(this.AdminInformation_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label sex;
-        private System.Windows.Forms.Label 性别;
         private System.Windows.Forms.Label age;
-        private System.Windows.Forms.Label yuanxi1;
         private System.Windows.Forms.Label class1;
         private System.Windows.Forms.Label num;
         private System.Windows.Forms.Label name1;
-        private System.Windows.Forms.Label yuan;
         private System.Windows.Forms.Label nainl;
         private System.Windows.Forms.Label xuehao;
         private System.Windows.Forms.Label banji;
@@ -283,5 +346,11 @@ namespace App2
         private System.Windows.Forms.Label yuanxi;
         public System.Windows.Forms.Label name;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private CircularProgressBar.CircularProgressBar circularProgressBar2;
+        private CircularProgressBar.CircularProgressBar circularProgressBar1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

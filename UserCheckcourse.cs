@@ -250,7 +250,7 @@ namespace App2
         private void button1_Click(object sender, EventArgs e)
         {
             string id11 = dataGridView1.SelectedRows[0].Cells[0].Value.ToString();
-            string mysql1 = $"select id from mysubject where id=('{id11}');";
+            string mysql1 = $"select cid from mysubject where cid=('{id11}');";
             Dao dao = new Dao();
             IDataReader dc = dao.read(mysql1);
             if (dc.Read())
@@ -259,7 +259,7 @@ namespace App2
             }
             else
             {
-                string mysql = $"insert into mysubject(id) values('{id11}');";
+                string mysql = $"insert into mysubject(sid,cid) values('{Data.UID}','{id11}');";
                 if (dao.Execute(mysql) == 1)
                 {
                     MessageBox.Show("选课成功");
@@ -269,6 +269,8 @@ namespace App2
                     MessageBox.Show("选课失败，请重新尝试或选择相应课程！");
                 }
             }
+            dao.DaoClose();
+            dc.Close();
         }
 
         public void button2_Click(object sender, EventArgs e)

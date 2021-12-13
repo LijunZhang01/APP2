@@ -93,7 +93,7 @@ namespace App2
         private void btn_modifyDept_Click(object sender, EventArgs e)
         {
             Dao dao = new Dao();
-            string mysql = $"insert into  `sc` values('{sid1.Text}','{cid1.Text}','{garade1.Text}'";
+            string mysql = $"insert into sc values('{sid1.Text}','{cid1.Text}','{garade1.Text}')";
             try
             {
                 if (dao.Execute(mysql) == 1)

@@ -95,7 +95,7 @@ namespace App2
         private void btn_modifyDept_Click(object sender, EventArgs e)
         {
             Dao dao = new Dao();
-            string mysql = $"insert into  `subject` values('{id.Text}','{name.Text}','{teacher.Text}','{yuanxi.Text}','{location1.Text}','{week.Text}','{num.Text}','{long1.Text}')";
+            string mysql = $"insert into subject values('{id.Text}','{name.Text}','{teacher.Text}','{yuanxi.Text}','{location1.Text}','{week.Text}','{num.Text}','{long1.Text}')";
             try
             {
                 if (dao.Execute(mysql) == 1)

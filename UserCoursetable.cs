@@ -19,6 +19,9 @@ namespace App2
 
             InitializeComponent();
             table1();
+            name.Text = Data.UID;
+            yuanxi.Text = Data.UName;
+            timer2.Start();
             /*System.Timers.Timer mTimer = new System.Timers.Timer(7000D);
             mTimer.Elapsed += new ElapsedEventHandler(mTimer_Elapsed);
             mTimer.Start();
@@ -70,7 +73,7 @@ namespace App2
                     num = i;
                     week = j;
                     Dao dao = new Dao();
-                    string mysql = $"SELECT `subject`.name,`subject`.teacher,`subject`.location,`subject`.long from `subject`,yonghu,sc,`mysubject` WHERE yonghu.num = sc.sid and sc.cid =`subject`.id and yonghu.num = '{Data.UID}' and `subject`.num = '{num.ToString()}' and `subject`.week = '{week.ToString()}' and `subject`.id=`mysubject`.id";
+                    string mysql = $"SELECT `subject`.name,`subject`.teacher,`subject`.location,`subject`.long from `subject`,yonghu,`mysubject` WHERE yonghu.num = `mysubject`.sid and  yonghu.num = '{Data.UID}' and `subject`.num = '{num.ToString()}' and `subject`.week = '{week.ToString()}' and `mysubject`.cid=`subject`.id";
                     //string mysql = "select subject ,teacher,room,weekstar_end from subject_table where num='" + num.ToString() + "' and week = '" + week.ToString() + "'";  //拼凑SQL语句。
                     IDataReader dc = dao.read(mysql);
                     while (dc.Read())
@@ -90,7 +93,7 @@ namespace App2
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.ColumnHeadersVisible = false;
             dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-            dataGridView1.RowTemplate.Height = 41;
+            dataGridView1.RowTemplate.Height = 50;
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(46, 51, 73);
             for (int i = 0; i < 8; i++)
             {
@@ -147,6 +150,22 @@ namespace App2
         private void timer1_Tick_1(object sender, EventArgs e)
         {
             table1();
+        }
+
+        private void yuanxi_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            DateTime dt = DateTime.Now;
+            label3.Text = dt.ToString("yyyy:MM:dd");
         }
     }
  }
