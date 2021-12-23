@@ -54,7 +54,7 @@ namespace App2
             dataGridView1.Rows.Clear();//清空旧数据
             dataGridView1.Rows.Add("学号", "课程号", "课程名", "开课院系", "分数");
             Dao dao = new Dao();
-            string mysql = $"SELECT `sc`.sid,`sc`.cid,`subject`.name,`subject`.yuanxi,`sc`.garade from `subject`,sc WHERE sc.cid=`subject`.id and `subject`.name = '{cname}'";
+            string mysql = $"SELECT `sc`.sid,`sc`.cid,`subject`.name,`subject`.yuanxi,`sc`.garade from `subject`,sc WHERE sc.cid=`subject`.id and `subject`.name = '{cname.Text}'";
             IDataReader dc = dao.read(mysql);
             while (dc.Read())
             {
@@ -236,6 +236,16 @@ namespace App2
         private void timer2_Tick(object sender, EventArgs e)
         {
             fun();
+        }
+
+        private void UserScore_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cname_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

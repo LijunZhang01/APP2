@@ -30,14 +30,14 @@ namespace App2
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint5 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint6 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint7 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint8 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label_query = new System.Windows.Forms.Label();
             this.zhuangtai = new System.Windows.Forms.ComboBox();
@@ -114,6 +114,7 @@ namespace App2
             this.cname.Name = "cname";
             this.cname.Size = new System.Drawing.Size(160, 39);
             this.cname.TabIndex = 57;
+            this.cname.TextChanged += new System.EventHandler(this.cname_TextChanged);
             // 
             // button2
             // 
@@ -185,14 +186,14 @@ namespace App2
             this.Column3,
             this.Column4,
             this.Column5});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("华光准圆_CNKI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.IndianRed;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("华光准圆_CNKI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Left;
             this.dataGridView1.Location = new System.Drawing.Point(0, 94);
             this.dataGridView1.MultiSelect = false;
@@ -256,37 +257,37 @@ namespace App2
             this.chart2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.chart2.BackImage = "D:\\Desktop\\20211212145000.png";
             this.chart2.BorderlineColor = System.Drawing.Color.Maroon;
-            chartArea2.BackImage = "D:\\Desktop\\20211212145000.png";
-            chartArea2.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart2.Legends.Add(legend2);
+            chartArea1.BackImage = "D:\\Desktop\\20211212145000.png";
+            chartArea1.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart2.Legends.Add(legend1);
             this.chart2.Location = new System.Drawing.Point(786, 349);
             this.chart2.Name = "chart2";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            series2.LabelBackColor = System.Drawing.Color.Transparent;
-            series2.LabelForeColor = System.Drawing.Color.BlanchedAlmond;
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            dataPoint5.AxisLabel = "60分以下";
-            dataPoint5.CustomProperties = "PieLabelStyle=Outside";
-            dataPoint5.LabelForeColor = System.Drawing.Color.Crimson;
-            dataPoint6.AxisLabel = "60-70";
-            dataPoint6.CustomProperties = "PieLabelStyle=Outside";
-            dataPoint6.LabelForeColor = System.Drawing.Color.Crimson;
-            dataPoint7.AxisLabel = "70-85";
-            dataPoint7.CustomProperties = "PieLabelStyle=Outside";
-            dataPoint7.LabelForeColor = System.Drawing.Color.Crimson;
-            dataPoint8.AxisLabel = "85-100";
-            dataPoint8.CustomProperties = "PieLabelStyle=Outside";
-            dataPoint8.LabelForeColor = System.Drawing.Color.Crimson;
-            series2.Points.Add(dataPoint5);
-            series2.Points.Add(dataPoint6);
-            series2.Points.Add(dataPoint7);
-            series2.Points.Add(dataPoint8);
-            this.chart2.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            series1.LabelBackColor = System.Drawing.Color.Transparent;
+            series1.LabelForeColor = System.Drawing.Color.BlanchedAlmond;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            dataPoint1.AxisLabel = "60分以下";
+            dataPoint1.CustomProperties = "PieLabelStyle=Outside";
+            dataPoint1.LabelForeColor = System.Drawing.Color.Crimson;
+            dataPoint2.AxisLabel = "60-70";
+            dataPoint2.CustomProperties = "PieLabelStyle=Outside";
+            dataPoint2.LabelForeColor = System.Drawing.Color.Crimson;
+            dataPoint3.AxisLabel = "70-85";
+            dataPoint3.CustomProperties = "PieLabelStyle=Outside";
+            dataPoint3.LabelForeColor = System.Drawing.Color.Crimson;
+            dataPoint4.AxisLabel = "85-100";
+            dataPoint4.CustomProperties = "PieLabelStyle=Outside";
+            dataPoint4.LabelForeColor = System.Drawing.Color.Crimson;
+            series1.Points.Add(dataPoint1);
+            series1.Points.Add(dataPoint2);
+            series1.Points.Add(dataPoint3);
+            series1.Points.Add(dataPoint4);
+            this.chart2.Series.Add(series1);
             this.chart2.Size = new System.Drawing.Size(399, 273);
             this.chart2.TabIndex = 37;
             this.chart2.Text = "chart2";
@@ -353,6 +354,7 @@ namespace App2
             this.Controls.Add(this.groupBox1);
             this.Name = "UserScore";
             this.Size = new System.Drawing.Size(1225, 637);
+            this.Load += new System.EventHandler(this.UserScore_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

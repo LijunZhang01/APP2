@@ -164,5 +164,10 @@ namespace App2
             DateTime dt = DateTime.Now;
             label3.Text = dt.ToString("HH:MM:ss");
         }
+
+        private void panelContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

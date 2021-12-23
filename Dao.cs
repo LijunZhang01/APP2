@@ -9,6 +9,9 @@ namespace App2
         MySqlConnection sc;
         public MySqlConnection connect()
         {
+            //布置在服务器上的数据库，可能会有点慢
+            //string str = "server=121.199.173.91;User Id=root;password=123456;Database=app";//数据库链接字符串
+            
             string str = "server=localhost;User Id=root;password=zlj20011030;Database=app";//数据库链接字符串
             sc = new MySqlConnection(str);//创建数据库链接对象
             sc.Open();//打开数据库
