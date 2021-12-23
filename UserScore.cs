@@ -51,7 +51,7 @@ namespace App2
         }
         public void namesearch()
         {
-            //haoyajjfdffgf
+            //haoyajjfdffgfdsa
             dataGridView1.Rows.Clear();//清空旧数据
             dataGridView1.Rows.Add("学号", "课程号", "课程名", "开课院系", "分数");
             Dao dao = new Dao();
