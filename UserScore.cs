@@ -59,6 +59,7 @@ namespace App2
             IDataReader dc = dao.read(mysql);
             while (dc.Read())
             {
+                //测试git
                 dataGridView1.Rows.Add(dc[0].ToString(), dc[1].ToString(), dc[2].ToString(), dc[3].ToString(), dc[4].ToString());
             }
             dataGridView1.DefaultCellStyle.BackColor = Color.FromArgb(46, 51, 90);
